@@ -1,0 +1,205 @@
+/* =========================
+   Root Variables
+========================= */
+:root {
+  --color-primary: #6366f1;
+  --color-secondary: #8b5cf6;
+  --color-bg: linear-gradient(135deg, #4f46e5, #9333ea);
+  --color-card-bg: #ffffff;
+  --color-text: #1f2937;
+  --color-muted: #6b7280;
+  --color-border: #e5e7eb;
+  --color-success: #10b981;
+  --color-danger: #ef4444;
+  --radius: 8px;
+  --transition: 0.3s ease;
+}
+
+/* =========================
+   Global Styles
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", Arial, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header, footer {
+  text-align: center;
+  color: #fff;
+  padding: 1rem;
+}
+
+main {
+  flex: 1;
+  padding: 1rem;
+  display: grid;
+  place-items: center;
+}
+
+/* =========================
+   Card Layouts
+========================= */
+section {
+  background: var(--color-card-bg);
+  border-radius: var(--radius);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  padding: 2rem;
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 2rem;
+  transition: transform var(--transition);
+}
+
+section:hover {
+  transform: translateY(-4px);
+}
+
+/* =========================
+   Forms
+========================= */
+form {
+  display: grid;
+  gap: 1rem;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+input, textarea, select {
+  padding: 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.3);
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* =========================
+   Buttons
+========================= */
+button {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+}
+
+button:hover {
+  background: var(--color-secondary);
+  transform: translateY(-2px);
+}
+
+button:disabled {
+  background: var(--color-muted);
+  cursor: not-allowed;
+}
+
+/* =========================
+   Dashboard & Lists
+========================= */
+#resume-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+#resume-list li {
+  background: #f9fafb;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* =========================
+   Resume Preview
+========================= */
+#resume-preview {
+  background: #f3f4f6;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  min-height: 300px;
+  overflow-y: auto;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.preview-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+/* =========================
+   Responsive Design
+========================= */
+@media (max-width: 768px) {
+  section {
+    padding: 1.5rem;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .auth-forms {
+    display: grid;
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .auth-forms {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+/* =========================
+   Animations
+========================= */
+.hidden {
+  display: none;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
