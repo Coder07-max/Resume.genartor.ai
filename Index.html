@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Resume Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>AI Resume Generator</h1>
+  </header>
+
+  <main id="app">
+    <!-- Authentication Section -->
+    <section id="auth-section">
+      <div class="auth-forms">
+        <form id="signup-form">
+          <h2>Sign Up</h2>
+          <label for="signup-username">Username</label>
+          <input type="text" id="signup-username" required>
+          <label for="signup-password">Password</label>
+          <input type="password" id="signup-password" required>
+          <button type="submit">Sign Up</button>
+        </form>
+
+        <form id="login-form">
+          <h2>Login</h2>
+          <label for="login-username">Username</label>
+          <input type="text" id="login-username" required>
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" required>
+          <button type="submit">Login</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="hidden">
+      <h2>Welcome, <span id="user-display"></span></h2>
+      <button id="logout-btn">Logout</button>
+      <h3>Your Saved Resumes</h3>
+      <ul id="resume-list"></ul>
+      <button id="new-resume-btn">Create New Resume</button>
+    </section>
+
+    <!-- Resume Builder Form -->
+    <section id="resume-form-section" class="hidden">
+      <h2>Create/Edit Resume</h2>
+      <form id="resume-form">
+        <!-- Personal Info -->
+        <fieldset>
+          <legend>Personal Information</legend>
+          <label for="resume-name">Resume Name</label>
+          <input type="text" id="resume-name" required>
+          <label for="full-name">Full Name</label>
+          <input type="text" id="full-name" required>
+          <label for="email">Email</label>
+          <input type="email" id="email" required>
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" required>
+          <label for="summary">Professional Summary</label>
+          <textarea id="summary" required></textarea>
+        </fieldset>
+
+        <!-- Work Experience -->
+        <fieldset>
+          <legend>Work Experience</legend>
+          <div id="work-experience"></div>
+          <button type="button" id="add-work-btn">Add Work Experience</button>
+        </fieldset>
+
+        <!-- Education -->
+        <fieldset>
+          <legend>Education</legend>
+          <div id="education"></div>
+          <button type="button" id="add-edu-btn">Add Education</button>
+        </fieldset>
+
+        <!-- Skills -->
+        <fieldset>
+          <legend>Skills</legend>
+          <input type="text" id="skill-input" placeholder="Add a skill">
+          <button type="button" id="add-skill-btn">Add Skill</button>
+          <div id="skills"></div>
+        </fieldset>
+
+        <!-- API Key -->
+        <fieldset>
+          <legend>Gemini API Key</legend>
+          <label for="api-key">Enter your Gemini API Key</label>
+          <input type="password" id="api-key" required>
+        </fieldset>
+
+        <!-- Actions -->
+        <div class="form-actions">
+          <button type="button" id="generate-ai-btn">Generate with AI</button>
+          <button type="button" id="save-resume-btn">Save Resume</button>
+          <button type="button" id="back-dashboard-btn">Back to Dashboard</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Resume Preview -->
+    <section id="resume-preview-section" class="hidden">
+      <h2>Resume Preview</h2>
+      <div id="resume-preview"></div>
+      <div class="preview-actions">
+        <button id="download-pdf-btn">Download PDF</button>
+        <button id="download-docx-btn">Download Word</button>
+        <button id="copy-clipboard-btn">Copy to Clipboard</button>
+        <button id="print-btn">Print</button>
+        <button id="back-edit-btn">Back to Edit</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 AI Resume Generator</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
